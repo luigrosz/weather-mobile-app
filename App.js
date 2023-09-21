@@ -11,7 +11,7 @@ export default function App() {
   async function callApi() {
     try {
       const response = await fetch(
-        "https://api.openweathermap.org/data/3.0/onecall?id=524901&lat=-15.8957166&lon=-52.2514538&exclude=hourly,daily,minutely&units=metric&appid=process.env.API_KEY"
+        `https://api.openweathermap.org/data/3.0/onecall?id=524901&lat=-15.8957166&lon=-52.2514538&exclude=hourly,daily,minutely&units=metric&appid=${API_KEY}`
       );
       const data = await response.json();
       const { current } = data;
@@ -51,8 +51,8 @@ export default function App() {
             {/* {test()} */}
             <Text>Temperatura: {weatherObj.temp}</Text>
             <Image
-              source={require(`./assets/ow-icons/${weatherObj.weather[0].icon}d.png`)}
-              // source={require(`./assets/ow-icons/04d.png`)}
+              // source={require(`./assets/ow-icons/${weatherObj.weather[0].icon}d.png`)}
+              source={require(`./assets/ow-icons/04d.png`)}
             ></Image>
           </View>
         )
